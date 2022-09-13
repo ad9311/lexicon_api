@@ -16,8 +16,6 @@ AllCops:
   Exclude:
     - "db/**/*"
     - "bin/*"
-    - "lib/**/*"
-    - "config/**/*"
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
