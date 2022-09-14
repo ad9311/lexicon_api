@@ -1,10 +1,6 @@
 class LanguagesController < ApplicationController
   before_action :set_language, only: %i[edit update destroy]
 
-  def index
-    @langs = Language.all.sort_by(&:name)
-  end
-
   def new
     @lang = Language.new
     @submit = 'Add'
@@ -14,7 +10,7 @@ class LanguagesController < ApplicationController
     @lang = Language.new language_params
     @lang.save
 
-    redirect_to languages_path
+    redirect_to root_path
   end
 
   def edit
@@ -22,9 +18,9 @@ class LanguagesController < ApplicationController
   end
 
   def update
-    @lang.update(language_params)
+    @lang.update language_params
 
-    redirect_to languages_path
+    redirect_to root_path
   end
 
   def destroy; end
@@ -32,11 +28,11 @@ class LanguagesController < ApplicationController
   private
 
   def set_language
-    @lang = Language.find(params[:id])
+    @lang = Language.find params[:id]
   end
 
   def language_params
     raw_params = params.require(:language).permit(:name, :abbrev)
-    raw_params.each_value { |param| param.downcase! if param.is_a?(String) }
+    raw_params.each_value { |param| param.downcase! if param.is_a? String }
   end
 end

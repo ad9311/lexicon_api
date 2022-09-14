@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  root 'languages#index'
+  root 'home#index'
 
-  resources :languages, except: %i[show]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :home, only: %i[index]
+  resources :languages, except: %i[index show]
+  resources :dictionaries, except: %i[index]
 end

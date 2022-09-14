@@ -1,0 +1,11 @@
+%h2 Languages
+%ul
+  - @langs.each do |lang|
+    %li
+      =link_to lang.name.capitalize, edit_language_path(lang)
+
+%h2 Dictionaries
+%ul 
+  - @dicts.each do |dict|
+    %li
+      =link_to dict.name.upcase, dictionary_path(dict)
