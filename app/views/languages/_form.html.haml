@@ -1,0 +1,6 @@
+= form_with model: @lang do |f|
+  .form-field
+    = f.label :name
+    = f.text_field :name, required: true
+  .form-action
+    = f.submit "Create"

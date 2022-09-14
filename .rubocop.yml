@@ -35,6 +35,8 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
+  Exclude:
+    - "lib/tasks/auto_annotate_models.rake"
   Max: 30
 
 Layout/LineLength:
@@ -49,3 +51,5 @@ Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+Style/StringHashKeys:
+  Enabled: true
