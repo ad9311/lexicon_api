@@ -2,5 +2,8 @@
   .form-field
     = f.label :name
     = f.text_field :name, required: true
+  .form-field
+    = f.label :abbrev, "Abbreviation"
+    = f.text_field :abbrev, required: true
   .form-action
-    = f.submit "Create"
+    = f.submit @submit

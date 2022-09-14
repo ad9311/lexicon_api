@@ -7,6 +7,7 @@ class LanguagesController < ApplicationController
 
   def new
     @lang = Language.new
+    @submit = 'Add'
   end
 
   def create
@@ -16,7 +17,9 @@ class LanguagesController < ApplicationController
     redirect_to languages_path
   end
 
-  def edit; end
+  def edit
+    @submit = 'Edit'
+  end
 
   def update
     @lang.update(language_params)
@@ -33,7 +36,7 @@ class LanguagesController < ApplicationController
   end
 
   def language_params
-    raw_params = params.require(:language).permit(:name)
+    raw_params = params.require(:language).permit(:name, :abbrev)
     raw_params.each_value { |param| param.downcase! if param.is_a?(String) }
   end
 end
