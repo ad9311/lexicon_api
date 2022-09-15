@@ -1,0 +1,13 @@
+{
+  "name": "lexicon",
+  "version": "1.0.0",
+  "description": "Fun dictionary",
+  "main": "app/javascript/application.js",
+  "repository": "git@github.com:ad9311/lexicon.git",
+  "author": "Ángel Díaz <diazangel9311@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^8.23.1"
+  }
+}
