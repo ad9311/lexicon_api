@@ -1,1 +1,14 @@
 %h1= @dict.name.upcase
+%span Add
+%ul
+  %li= link_to "New Entry", new_entry_path(dictionary_id: @dict.id)
+
+%span Entries
+%ul
+  - @entries.each do |entry|
+    %li
+      %span= entry.source
+      %span= entry.target
+      = link_to "Edit", edit_entry_path(entry)
+      = button_to "Delete", entry_path(entry), method: :delete
+

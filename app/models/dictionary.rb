@@ -6,8 +6,8 @@
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  source_id  :integer
-#  target_id  :integer
+#  source_id  :bigint
+#  target_id  :bigint
 #
 # Indexes
 #
@@ -23,6 +23,8 @@
 class Dictionary < ApplicationRecord
   belongs_to :source, class_name: :Language
   belongs_to :target, class_name: :Language
+
+  has_many :entries, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 end

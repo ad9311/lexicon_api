@@ -10,19 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_14_022540) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_14_043312) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dictionaries", force: :cascade do |t|
-    t.integer "source_id"
-    t.integer "target_id"
+    t.bigint "source_id"
+    t.bigint "target_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_dictionaries_on_name", unique: true
     t.index ["source_id"], name: "index_dictionaries_on_source_id"
     t.index ["target_id"], name: "index_dictionaries_on_target_id"
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.string "source"
+    t.string "target"
+    t.integer "classif"
+    t.integer "gender"
+    t.bigint "dictionary_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dictionary_id"], name: "index_entries_on_dictionary_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -36,4 +47,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_022540) do
 
   add_foreign_key "dictionaries", "languages", column: "source_id"
   add_foreign_key "dictionaries", "languages", column: "target_id"
+  add_foreign_key "entries", "dictionaries"
 end

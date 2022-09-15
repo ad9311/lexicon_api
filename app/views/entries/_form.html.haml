@@ -1,0 +1,17 @@
+= form_with model: @entry do |f|
+  .hidden
+    = f.hidden_field :dictionary_id, value: @dict.id
+  .form-field
+    = f.label :source
+    = f.text_field :source
+  .form-field
+    = f.label :target
+    = f.text_field :target
+  .form-field
+    = f.label :gender
+    = f.select :gender, enum_to_select(@genders)
+  .form-field
+    = f.label :classif
+    = f.select :classif, enum_to_select(@classifs)
+  .form-action
+    = f.submit @submit

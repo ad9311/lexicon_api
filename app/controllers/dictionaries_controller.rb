@@ -1,7 +1,9 @@
 class DictionariesController < ApplicationController
   before_action :set_dictionary, only: %i[show edit update destroy]
 
-  def show; end
+  def show
+    @entries = @dict.entries.sort_by(&:classif)
+  end
 
   def new
     @dict = Dictionary.new
@@ -38,7 +40,7 @@ class DictionariesController < ApplicationController
     raw_params = params.require(:dictionary).permit(:source_id, :target_id)
     @source = Language.find(raw_params[:source_id])
     @target = Language.find(raw_params[:target_id])
-    @name = "#{@source.abbrev}-#{@target.abbrev}"
+    @name = "#{@source.name}-#{@target.name}"
     raw_params[:name] = @name
     raw_params
   end
