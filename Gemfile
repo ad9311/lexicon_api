@@ -51,6 +51,14 @@ gem 'bootsnap', require: false
 # Use haml-rails as a view template format
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 
+group :production do
+  # Use terser to minify js files
+  # gem 'terser', '~> 1.1', '>= 1.1.12'
+
+  # Use yui-compressor to minify css files
+  # gem 'yui-compressor', '~> 0.12.0'
+end
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]

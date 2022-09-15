@@ -81,6 +81,7 @@ GEM
     digest (3.1.0)
     erubi (1.11.0)
     erubis (2.7.0)
+    execjs (2.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
     haml (5.2.2)
@@ -185,6 +186,8 @@ GEM
     tailwindcss-rails (2.0.13-x86_64-linux)
       railties (>= 6.0.0)
     temple (0.8.2)
+    terser (1.1.12)
+      execjs (>= 0.3.0, < 3)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
@@ -202,6 +205,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    yui-compressor (0.12.0)
     zeitwerk (2.6.0)
 
 PLATFORMS
@@ -220,9 +224,11 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   tailwindcss-rails
+  terser (~> 1.1, >= 1.1.12)
   turbo-rails
   tzinfo-data
   web-console
+  yui-compressor (~> 0.12.0)
 
 RUBY VERSION
    ruby 3.1.2p20

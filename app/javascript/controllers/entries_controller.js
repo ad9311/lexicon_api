@@ -9,7 +9,9 @@ export default class extends Controller {
   }
 
   appendChar(e) {
-    this.selectedInput.value += e.target.innerHTML;
-    this.selectedInput.focus();
+    if (this.selectedInput.id !== undefined) {
+      this.selectedInput.value += e.target.innerHTML;
+      this.selectedInput.focus();
+    }
   }
 }
