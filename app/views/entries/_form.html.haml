@@ -3,15 +3,15 @@
     = f.hidden_field :dictionary_id, value: @dict.id
   .form-field
     = f.label :source
-    = f.text_field :source
+    = f.text_field :source, placeholder: "Source", class: "form-input"
   .form-field
     = f.label :target
-    = f.text_field :target
+    = f.text_field :target, placeholder: "Target", class: "form-input"
   .form-field
     = f.label :gender
-    = f.select :gender, enum_to_select(@genders)
+    = f.select :gender, enum_to_select(@genders), {}, class: "form-input"
   .form-field
-    = f.label :classif
-    = f.select :classif, enum_to_select(@classifs)
+    = f.label :classif, "Classification"
+    = f.select :classif, enum_to_select(@classifs), {}, class: "form-input"
   .form-action
-    = f.submit @submit
+    = f.submit @submit, class: "submit"

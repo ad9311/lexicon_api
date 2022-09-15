@@ -1,11 +1,17 @@
-%h2 Languages
-%ul
-  - @langs.each do |lang|
-    %li
-      =link_to lang.name.capitalize, edit_language_path(lang)
+%div{ class: "w-4/5 mx-auto pt-10" }
+  .flex.items-start.text-slate-900
+    .mr-10
+      .mb-3
+        %h2.text-xl.font-bold Languages
+      %ul
+        - @langs.each do |lang|
+          %li{ class:  "italic hover:text-slate-700" }
+            =link_to lang.name.capitalize, edit_language_path(lang)
 
-%h2 Dictionaries
-%ul 
-  - @dicts.each do |dict|
-    %li
-      =link_to dict.name.upcase, dictionary_path(dict)
+    %div
+      .mb-3
+        %h2.text-xl.font-bold Dictionaries
+      %ul
+        - @dicts.each do |dict|
+          %li{ class:  "italic hover:text-slate-700" }
+            =link_to dict.name.upcase, dictionary_path(dict), class: "italic"

@@ -1,9 +1,9 @@
 = form_with model: @dict do |f|
   .form-field
     = f.label :source_id, "Source language"
-    = f.select :source_id, @lang_select
+    = f.select :source_id, @lang_select, {}, class: "form-input"
   .form-field
     = f.label :target_id, "Target language"
-    = f.select :target_id, @lang_select
+    = f.select :target_id, @lang_select, {}, class: "form-input"
   .form-action
-    = f.submit @submit
+    = f.submit @submit, class: "submit"

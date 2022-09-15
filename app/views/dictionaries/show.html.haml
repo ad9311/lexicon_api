@@ -1,14 +1,14 @@
-%h1= @dict.name.upcase
-%span Add
-%ul
-  %li= link_to "New Entry", new_entry_path(dictionary_id: @dict.id)
-
-%span Entries
-%ul
-  - @entries.each do |entry|
-    %li
-      %span= entry.source
-      %span= entry.target
-      = link_to "Edit", edit_entry_path(entry)
-      = button_to "Delete", entry_path(entry), method: :delete
-
+%div{ class: "w-4/5 mx-auto pt-10 text-slate-900" }
+  .mb-3
+    %h2.text-xl.font-bold= @dict.name.upcase
+  .mb-2
+    %span.text-lg Entries
+  %ul
+    - @entries.each do |entry|
+      %li
+        = link_to entry_path(entry) do
+          %article
+            %h3
+              %b= entry.source.capitalize
+              %span -
+              %span.italic= entry.target.capitalize

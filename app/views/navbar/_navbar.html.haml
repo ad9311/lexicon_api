@@ -1,8 +1,11 @@
-%h1 LEXICON
-%nav
-  %ul
-    %li= link_to "Home", root_path
-  %span Add
-  %ul
-    %li= link_to "Language", new_language_path
-    %li= link_to "Dictionary", new_dictionary_path
+.py-5.bg-blue-900.text-white
+  %div{ class: "w-4/5 mx-auto" }
+    .mb-3
+      %h1.text-2xl.font-bold LEXICON
+    %nav
+      %ul.flex.items-center
+        %li.mr-2= link_to "Home", root_path, class: "hover:text-blue-300"
+        %li.mr-2= link_to "New language", new_language_path, class: "hover:text-blue-300"
+        %li.mr-2= link_to "New dictionary", new_dictionary_path, class: "hover:text-blue-300"
+        - if @entries && @dict
+          %li.mr-2= link_to "New entry", new_entry_path(dictionary_id: @dict), class: "hover:text-blue-300"

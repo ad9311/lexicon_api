@@ -1,9 +1,9 @@
 = form_with model: @lang do |f|
   .form-field
     = f.label :name
-    = f.text_field :name, required: true
+    = f.text_field :name, required: true, placeholder: "Name", class: "form-input"
   .form-field
     = f.label :abbrev, "Abbreviation"
-    = f.text_field :abbrev, required: true
+    = f.text_field :abbrev, required: true, placeholder: "Abbreviation", class: "form-input"
   .form-action
-    = f.submit @submit
+    = f.submit @submit, class: "submit"

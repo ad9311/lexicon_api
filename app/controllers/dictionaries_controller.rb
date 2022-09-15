@@ -1,5 +1,6 @@
 class DictionariesController < ApplicationController
   before_action :set_dictionary, only: %i[show edit update destroy]
+  before_action :set_languages_select, only: %i[new edit]
 
   def show
     @entries = @dict.entries.sort_by(&:classif)
@@ -7,7 +8,6 @@ class DictionariesController < ApplicationController
 
   def new
     @dict = Dictionary.new
-    @lang_select = Language.all.sort_by(&:name).pluck(:name, :id).each { |arr| arr[0].capitalize! }
     @submit = 'Add'
   end
 
@@ -34,6 +34,10 @@ class DictionariesController < ApplicationController
 
   def set_dictionary
     @dict = Dictionary.find params[:id]
+  end
+
+  def set_languages_select
+    @lang_select = Language.all.sort_by(&:name).pluck(:name, :id).each { |arr| arr[0].capitalize! }
   end
 
   def dictionary_params

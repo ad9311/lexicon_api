@@ -1,0 +1,14 @@
+%div{ class: "w-4/5 mx-auto pt-10 text-slate-900" }
+  .mb-3
+    %h2.font-bold.text-xl= @entry.source.capitalize
+  .mb-2
+    %b= @entry.classif
+    %span= initial_letter(@entry.gender, true)
+    %ul
+      - @entry.target.split(',').each_with_index do |t, i|
+        %li
+          %b= format_index(i)
+          %span= t.capitalize
+  .mt-3.flex.items-center
+    = link_to "Edit", edit_entry_path(@entry), class: "mr-2 link"
+    = button_to "Delete", entry_path(@entry), method: :delete, class: "delete"

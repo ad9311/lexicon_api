@@ -1,7 +1,9 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: %i[edit update destroy]
+  before_action :set_entry, only: %i[show edit update destroy]
   before_action :set_dictionary, only: %i[new]
   before_action :set_enums, only: %i[new edit]
+
+  def show; end
 
   def new
     @entry = Entry.new
@@ -38,6 +40,7 @@ class EntriesController < ApplicationController
 
   def set_entry
     @entry = Entry.find params[:id]
+    @dict = @entry.dictionary
   end
 
   def set_dictionary

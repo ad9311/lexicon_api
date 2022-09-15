@@ -1,4 +1,7 @@
-%h1
-  Edit entry for
-  = link_to @dict.name.upcase, dictionary_path(@dict)
-= render "form"
+%div{ class: "w-4/5 mx-auto pt-10 text-slate-900" }
+  .mb-3
+    %h2.text-xl.font-bold
+      Edit entry for
+      = link_to @dict.name.upcase, dictionary_path(@dict), class: "text-blue-700 hover:text-blue-500"
+  = render "form"
+
