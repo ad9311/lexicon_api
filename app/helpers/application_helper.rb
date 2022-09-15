@@ -5,10 +5,10 @@ module ApplicationHelper
     arr
   end
 
-  def initial_letter(str, period = false)
+  def initial_letter(str, period: false)
     i = str[0]
     if period
-      i + "."
+      "#{i}."
     else
       i
     end

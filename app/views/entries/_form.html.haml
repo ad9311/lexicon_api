@@ -1,17 +1,23 @@
-= form_with model: @entry do |f|
-  .hidden
-    = f.hidden_field :dictionary_id, value: @dict.id
-  .form-field
-    = f.label :source
-    = f.text_field :source, placeholder: "Source", class: "form-input"
-  .form-field
-    = f.label :target
-    = f.text_field :target, placeholder: "Target", class: "form-input"
-  .form-field
-    = f.label :gender
-    = f.select :gender, enum_to_select(@genders), {}, class: "form-input"
-  .form-field
-    = f.label :classif, "Classification"
-    = f.select :classif, enum_to_select(@classifs), {}, class: "form-input"
-  .form-action
-    = f.submit @submit, class: "submit"
+%div{ "data-controller": "entries" }
+  = form_with model: @entry do |f|
+    .hidden
+      = f.hidden_field :dictionary_id, value: @dict.id
+    .form-field
+      = f.label :source
+      = f.text_field :source, placeholder: "Source", class: "form-input", "data-action": "click->entries#selectInput"
+    .form-field
+      = f.label :target, "Targets (comma separated)"
+      = f.text_field :target, placeholder: "Target", class: "form-input", "data-action": "click->entries#selectInput"
+    .form-field
+      = f.label :gender
+      = f.select :gender, enum_to_select(@genders), {}, class: "form-input"
+    .form-field
+      = f.label :classif, "Classification"
+      = f.select :classif, enum_to_select(@classifs), {}, class: "form-input"
+    .form-action
+      = f.submit @submit, class: "submit"
+  .mt-5
+    %h3.text-lg.font-bold Special characters
+    .pt-2
+      - @special_chars.each do |sc|
+        %button{ "data-action": "entries#appendChar", type: "button ", class: "link special-char"}= sc

@@ -5,5 +5,8 @@
   .form-field
     = f.label :abbrev, "Abbreviation"
     = f.text_field :abbrev, required: true, placeholder: "Abbreviation", class: "form-input"
+  .form-field
+    = f.label :special_chars, "Special characters (comma separated) *optional"
+    = f.text_field :special_chars, placeholder: "Special characters", class: "form-input"
   .form-action
     = f.submit @submit, class: "submit"

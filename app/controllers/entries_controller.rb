@@ -2,6 +2,7 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: %i[show edit update destroy]
   before_action :set_dictionary, only: %i[new]
   before_action :set_enums, only: %i[new edit]
+  before_action :set_special_chars, only: %i[new edit]
 
   def show; end
 
@@ -50,6 +51,12 @@ class EntriesController < ApplicationController
   def set_enums
     @genders = Entry.genders
     @classifs = Entry.classifs
+  end
+
+  def set_special_chars
+    @source_chars = @dict.source.special_chars.split(',')
+    @target_chars = @dict.target.special_chars.split(',')
+    @special_chars = @source_chars | @target_chars
   end
 
   def entry_params

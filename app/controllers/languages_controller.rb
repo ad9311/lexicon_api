@@ -32,7 +32,7 @@ class LanguagesController < ApplicationController
   end
 
   def language_params
-    raw_params = params.require(:language).permit(:name, :abbrev)
+    raw_params = params.require(:language).permit(:name, :abbrev, :special_chars)
     raw_params.each_value { |v| v.downcase! if v.is_a? String }
   end
 end
